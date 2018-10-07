@@ -6,7 +6,6 @@ int calculatePoint(int N, int * points){
     
 	if (N<0||N>1000)
 	{
-		printf("ERROR: N outside limit!");
 		return -1;
 	}
 	int totalPeople = 3+N;
@@ -17,16 +16,14 @@ int calculatePoint(int N, int * points){
 
 int main()
 {    
-	int N = 5;
+	int N = 0;
 	int points;
-	 
-    printf("INPUT = N: %d\n",N);  
-    
+	scanf("%d",&N);
 	int result = calculatePoint(N,&points);
     
     if(result ==0)
     {
-    	printf("OUTPUT = Points: %d", points);
+    	printf("%d\n", points);
 	}
 	
     return 0;

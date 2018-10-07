@@ -4,7 +4,7 @@
 
 #define MAX_NAME_LENGTH 10
 #define MAX_PHONE_LENGTH 8
-#define SPACES 2
+#define SPACES 1
 
 #define TOTAL_CHARS MAX_NAME_LENGTH+MAX_PHONE_LENGTH+SPACES 
 
@@ -65,7 +65,7 @@ int split_str(char* src, char* dst )
 		{
 			k=k+(TOTAL_CHARS-(strlen(tokens[i+1])+strlen(tokens[i])));
 		}
-		else
+		else if(i!=5)
 		{
 			dst[k]='\n';
 			k++;
@@ -77,18 +77,19 @@ int split_str(char* src, char* dst )
 
 int main ()
 {   
-	char input[] ="Jojo12345678Lili12345679Abcdefghij12345680";
-        
+	char input[(TOTAL_CHARS+1)*3+1];
+    memset(input,0,(TOTAL_CHARS+1)*3);
+	    
 	//we now that there will only be 3 lines of name+phone, each line does not consists more than 18 characters
 	char output[(TOTAL_CHARS+1)*3+1];
     memset(output,' ',(TOTAL_CHARS+1)*3);
     output[(TOTAL_CHARS+1)*3]=0;
     
-	printf("INPUT = %s\n",&input); 
+    scanf("%s",input);
 	
 	split_str(input,output);
 
-	printf("OUTPUT = \n%s\n",output);
+	printf("%s",output);
     
     return 0;
 }

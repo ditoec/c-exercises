@@ -6,12 +6,12 @@ int calculateFollowers(int N, int K, int * followers){
     
 	if (N<1||N>128)
 	{
-		printf("ERROR: N outside limit!");
+		*followers = 0;
 		return -1;
 	}
 	if (K<1||K>30)
 	{
-		printf("ERROR: K outside limit!");
+		*followers = 0;
 		return -1;
 	}
 	*followers = N*pow(2,K);
@@ -20,18 +20,16 @@ int calculateFollowers(int N, int K, int * followers){
 
 int main()
 {    
-	int N = 7;
-	int K = 3;
+	int N = 0;
+	int K = 0;
 	int followers;
 	 
-    printf("INPUT = N: %d K: %d\n",N,K);  
-    
+	scanf("%d",&N);
+	scanf("%d",&K);
+	    
 	int result = calculateFollowers(N,K,&followers);
     
-    if(result ==0)
-    {
-    	printf("OUTPUT = Followers: %d", followers);
-	}
+    printf("%d\n", followers);
 	
     return 0;
 }
